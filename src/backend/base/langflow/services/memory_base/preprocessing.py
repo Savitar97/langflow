@@ -34,8 +34,7 @@ DEFAULT_KILL_PHRASE = "NO_INGEST"
 # have to know the sentinel. Kept as a single line so the LLM treats it as a
 # normal directive rather than free-form text.
 _KILL_PHRASE_SUFFIX = (
-    "\n\nIf this batch is not worth ingesting into long-term memory, "
-    "respond with exactly: {kill_phrase}"
+    "\n\nIf this batch is not worth ingesting into long-term memory, respond with exactly: {kill_phrase}"
 )
 
 

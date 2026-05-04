@@ -418,9 +418,7 @@ async def ingest_memory_task(*, request: IngestionRequest) -> dict:
             # Staged in the same DB session as the cursor advance + ingestion-record
             # writes below so the three flush together. On failure they roll back as one.
             if preproc_row is not None:
-                await _update_preproc_row_status(
-                    db, preproc_row, status="ingested", task_job_id=task_job_id
-                )
+                await _update_preproc_row_status(db, preproc_row, status="ingested", task_job_id=task_job_id)
 
             # ---- 6. Bulk-stamp ingestion metadata ----
             await _mark_messages_ingested(db, messages=messages, job_id=task_job_id, memory_base_id=memory_base_id)
